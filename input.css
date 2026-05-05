@@ -1,0 +1,333 @@
+ /* ══ SOLO lo que tus CSS no cubren ══════════════════ */
+
+        :root {
+            --accent:   #7f6ef5;
+            --accent2:  #a594ff;
+            --border-c: #333;
+            --surface:  #252525;
+            --surface2: #2d2d2d;
+            --text2:    #aaaaaa;
+            --text3:    #666;
+            --success:  #27c93f;
+            --error:    #ff5f56;
+        }
+
+        /* ── Tabs del sidebar ──────────────────────────── */
+        .tab-item {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            width: 100%;
+            padding: 9px 12px;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            background: transparent;
+            color: #aaa;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background .15s, color .15s, border-color .15s;
+            text-align: left;
+            margin-bottom: 2px;
+        }
+        .tab-item:hover {
+            background: #2d2d2d;
+            color: white;
+        }
+        .tab-item.active {
+            background: rgba(127,110,245,.15);
+            border-color: rgba(127,110,245,.35);
+            color: #a594ff !important;
+        }
+        .tab-icon { font-size: 17px; width: 22px; text-align: center; }
+
+        /* ── Paneles (mostrar/ocultar) ──────────────────── */
+        .panel { display: none; }
+        .panel.active { display: block; }
+
+        /* ── Preview símbolo integral ───────────────────── */
+        .integral-preview {
+            background: #252525;
+            border: 1px solid #3d3d3d;
+            border-radius: 10px;
+            padding: 14px 18px;
+            min-height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px;
+            color: #e8e8e8;
+            margin-bottom: 14px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color .2s;
+        }
+        .integral-preview::after {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        /* ── Toggle modo ────────────────────────────────── */
+        /* Sobreescribimos .mode-selector para que sea toggle */
+        .mode-selector {
+            display: flex !important;
+            gap: 0 !important;
+            background: #121212;
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            width: fit-content;
+            margin-bottom: 14px !important;
+        }
+        .mode-selector button {
+            padding: 7px 20px;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+            color: #aaa;
+            font-size: 13px;
+            margin-bottom: 0;
+        }
+        .mode-selector button.active {
+            background: var(--accent);
+            color: white;
+        }
+        .mode-selector button:hover:not(.active) {
+            background: #2d2d2d;
+            color: white;
+        }
+
+        /* ── Límites animados ───────────────────────────── */
+        .limits-wrap {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height .3s ease, opacity .25s;
+            opacity: 0;
+            margin-bottom: 0;
+        }
+        .limits-wrap.visible {
+            max-height: 160px;
+            opacity: 1;
+            margin-bottom: 14px;
+        }
+
+        /* ── Panel de límites ───────────────────────────── */
+        .limits-panel {
+            background: #252525;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+        }
+        .limits-panel-title {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #a594ff;
+            margin-bottom: 8px;
+        }
+        .limits-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .lim-label { font-size: 13px; color: #aaa; white-space: nowrap; }
+
+        /* Inputs de límites — heredan tu estilo base pero más compactos */
+        .lim-input {
+            flex: 1;
+            max-width: 130px;
+            background: #121212;
+            border: 1px solid #333;
+            color: white;
+            padding: 7px 10px;
+            border-radius: 8px;
+            font-size: 13px;
+            width: auto;
+            margin-bottom: 0;
+            outline: none;
+            font-family: 'Courier New', monospace;
+            transition: border-color .2s;
+        }
+        .lim-input:focus { border-color: var(--accent); }
+
+        /* ── Input ancho completo (doble/polar) ─────────── */
+        .input-full {
+            background: #121212;
+            border: 1px solid #333;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 8px;
+            width: 100%;
+            margin-bottom: 12px;
+            outline: none;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            transition: border-color .2s;
+        }
+        .input-full:focus { border-color: var(--accent); }
+
+        /* ── Variable ───────────────────────────────────── */
+        .var-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .var-label { font-size: 13px; color: #aaa; }
+        .var-input {
+            width: 54px;
+            background: #121212;
+            border: 1px solid #333;
+            color: white;
+            padding: 6px 8px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+            outline: none;
+            text-align: center;
+            margin-bottom: 0;
+            transition: border-color .2s;
+        }
+        .var-input:focus { border-color: var(--accent); }
+
+        /* ── Barra de símbolos scroll ───────────────────── */
+        .sec-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #555;
+            margin: 8px 0 6px;
+        }
+        .sym-scroll {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+        }
+        .sym-scroll::-webkit-scrollbar { height: 3px; }
+        .sym-scroll::-webkit-scrollbar-thumb { background: #333; border-radius: 9px; }
+
+        .sym-chip {
+            flex-shrink: 0;
+            padding: 5px 13px;
+            background: #252525;
+            border: 1px solid #3d3d3d;
+            border-radius: 20px;
+            color: #aaa;
+            font-size: 13px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background .12s, color .12s, border-color .12s;
+            margin-bottom: 0;
+        }
+        .sym-chip:hover {
+            background: rgba(127,110,245,.15);
+            border-color: var(--accent);
+            color: #a594ff;
+        }
+
+        /* ── Resultado ──────────────────────────────────── */
+        /* Extiende tu .resultado-box */
+        .resultado-box {
+            background: #252525 !important;  /* más oscuro que tu gris claro */
+            transition: border-color .3s;
+            border-left: 3px solid #3d3d3d;
+        }
+        .resultado-box.ok    { border-left-color: var(--success); }
+        .resultado-box.error { border-left-color: var(--error); }
+
+        #resultado_area {
+            font-family: 'Courier New', monospace;
+            font-size: 15px;
+            color: #e8e8e8;
+            width: 100%;
+            word-break: break-all;
+            user-select: text;
+        }
+        #resultado_area.error-text { color: var(--error); }
+
+        /* ── Loader inline ──────────────────────────────── */
+        .loader {
+            display: none;
+            width: 14px; height: 14px;
+            border: 2px solid #444;
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin .6s linear infinite;
+            vertical-align: middle;
+            margin-left: 6px;
+        }
+        .loader.active { display: inline-block; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ── Historial ──────────────────────────────────── */
+        .hist-item {
+            font-size: 12px;
+            color: #555;
+            padding: 5px 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: color .15s, background .15s;
+        }
+        .hist-item:hover { color: #aaa; background: #2d2d2d; }
+
+        /* ── Ejemplos polares ───────────────────────────── */
+        .ejemplos-wrap {
+            display: flex; flex-wrap: wrap; gap: 6px;
+            margin-bottom: 12px;
+        }
+        .ej-btn {
+            padding: 5px 12px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 20px;
+            font-size: 11px;
+            color: #555;
+            cursor: pointer;
+            transition: all .15s;
+        }
+        .ej-btn:hover {
+            color: #a594ff;
+            border-color: var(--accent);
+            background: rgba(127,110,245,.08);
+        }
+
+        /* ── Botón copiar ───────────────────────────────── */
+        #btn-copy {
+            padding: 4px 11px;
+            background: transparent;
+            border: 1px solid #333;
+            border-radius: 7px;
+            color: #555;
+            font-size: 11px;
+            cursor: pointer;
+            margin-left: 8px;
+            vertical-align: middle;
+            transition: all .15s;
+        }
+        #btn-copy:hover { color: #aaa; border-color: #555; }
+
+        /* ── Scrollbar del main-content ─────────────────── */
+        .main-content::-webkit-scrollbar { width: 4px; }
+        .main-content::-webkit-scrollbar-thumb { background: #333; border-radius: 9px; }
+
+        /* ── Ajuste: .box-input ancho completo en simple ── */
+        #panel-simple .box-input { width: 100%; }
+        #panel-simple .box-input .border { width: 100%; }
+        #panel-simple .box-input .input {
+            max-width: 100%;
+            width: 100%;
+            height: 44px;
+            font-size: 15px;
+        }
+
+        /* ── h4 hereda tu color dorado ──────────────────── */
+        h4 { color: #dea123; margin-top: 16px; }
