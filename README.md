@@ -16,3 +16,6 @@ pip install -r requirements.txt
 
 Correr la app
 python main.py
+
+file
+https://drive.google.com/file/d/1xjOJYj4cxAk762mmEGSXydyFIc-a0uMD/view?usp=sharing
