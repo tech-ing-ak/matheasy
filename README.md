@@ -1,3 +1,13 @@
 # matheasy
-the best calculator for students. Download
-https://drive.google.com/file/d/1oWcWvifOpu_hEhb33PWmVcTnszQ9_hIi/view?usp=sharing
+the best calculator for students.
+Demo download 1.0
+
+How install Requeriments
+1 - Clonar / descomprimir el proyecto
+cd MathEasy
+
+2 - Instalar todo
+pip install -r requirements.txt
+
+3 - Correr la app
+python main.py
